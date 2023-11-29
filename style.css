@@ -1,0 +1,157 @@
+/* Tsering Khando Lama c0916140 */
+/* global formatting  */
+/* Add support for multiple languages using HTML's lang attribute and CSS for styling. */
+*[lang="en"] {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* heading 4 */
+.quiz-title {
+    text-align: center;
+    padding: 1%;
+}
+
+/* quiz contatiner starts here */
+.quiz-container {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+/* using linear gradient here */
+.question {
+    background: linear-gradient(160deg, #e178de, #4f1a9d);
+    padding: 20px;
+    padding-left: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* for question title */
+.question-head {
+    font-weight: bold;
+}
+
+/* list of options */
+.options {
+    padding: 0;
+}
+
+.options li {
+    width: auto;
+    background-color: #d3d3d3;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+/* when u hover the oprions */
+.options li:hover {
+    background-color: #fff;
+    border: 1px dotted #000;
+}
+
+/* Style for radio buttons */
+.options li input[type="radio"] {
+    display: none;
+}
+
+.options li label {
+    cursor: pointer;
+    padding: 2%;
+    display: inline-block;
+}
+
+/* defining animation for answers */
+/* for incorrect answer */
+@keyframes answer-incorrect {
+    0% {
+        opacity: 1;
+    }
+
+    20% {
+        opacity: 0.5;
+        background: #fff;
+        rgb(248, 0, 0);
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0.5;
+        color: rgb(248, 0, 0);
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* for correct answer */
+@keyframes answer-correct {
+    0% {
+        opacity: 1;
+    }
+
+    20% {
+        opacity: 0.5;
+        background: #fff;
+        color: rgb(39, 130, 0);
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* animation css for correct class  */
+.options li input[type="radio"]:checked+label.correct {
+    border: 2px solid #1b461b;
+    background-color: #129012;
+    width: 96%;
+    color: #ffffff;
+    border-radius: 5px;
+    animation: answer-correct 0.8s infinite; /* 2s duration, infinite loop */
+}
+
+/* animation css for incorrect class */
+.options li input[type="radio"]:checked+label.incorrect {
+    border: 2px solid #f30303;
+    background-color: #c54848;
+    width: 96%;
+    color: #ffffff;
+    border-radius: 5px;
+    animation: answer-incorrect 0.8s infinite;
+    /* 0.8s duration, infinite loop */
+}
+
+/* animation when reloading the page*/
+.question,
+.quiz-title {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out ;
+}
+
+.question.show,
+.quiz-title.show {
+    opacity: 1;
+}
+
+/* Accessibility */
+.options li label:focus {
+    outline: 3px solid #ffffff;
+}
+
+/* responsive design */
+@media screen and (max-width: 600px) {
+    .quiz-container {
+        grid-template-columns: 1fr;
+    }
+}

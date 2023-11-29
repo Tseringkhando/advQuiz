@@ -1,0 +1,49 @@
+<!-- Tsering Khando Lama c0916140-->
+<!DOCTYPE html>
+<!-- Add support for multiple languages using HTML's lang attribute and CSS for styling. -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdvancedQuizApp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h3 class="quiz-title">
+        Advanced Quizzez 6 & 7
+    </h3>
+    <!-- Building the Quiz Container -->
+    <div class="quiz-container" data-correct="4">
+        <!-- : Generating Questions -->
+        <div class="question">
+            <p class="question-head">What did I use for animation? </p>
+            <ol type="a" class="options">
+                <li data-option="1"><input type="radio" name="q1" id="q1-a1">
+                    <label class="incorrect" for="q1-a1"> JAVASCRIPT</label>
+                </li>
+                <li data-option="2"><input type="radio" name="q1" id="q1-a2">
+                    <label class="incorrect" for="q1-a2"> JAVA</label>
+                </li>
+                <li data-option="3"><input type="radio" name="q1" id="q1-a3">
+                    <label class="incorrect" for="q1-a3"> CASCADING SHEET</label>
+                </li>
+                <li data-option="4"><input type="radio" name="q1" id="q1-a4">
+                    <label class="correct" for="q1-a4"> CSS</label>
+                </li>
+            </ol>
+        </div>
+
+
+        <!--to show animation while reloading the page  -->
+        <script>
+            window.onload = function () {
+                document.querySelector('.question').classList.add('show');
+                document.querySelector('.quiz-title').classList.add('show');
+
+            };
+        </script>
+</body>
+
+</html>
